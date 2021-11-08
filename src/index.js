@@ -71,6 +71,12 @@ class ParallaxScrollView extends Component {
 		[{ nativeEvent: { contentOffset: { y: this.scrollY } } }],
 		{ useNativeDriver: true }
 	)
+	
+	componentDidMount(){
+		if(this.props.scrollRef){
+			this.props.scrollRef(this.refs[SCROLLVIEW_REF])
+		}
+	}
 
 	render() {
 		const {
